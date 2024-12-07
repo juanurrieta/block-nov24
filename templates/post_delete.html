@@ -1,0 +1,10 @@
+<form method="post">
+
+    {% csrf_token %}
+    <p>Seguro que quieres eliminar</p>
+    
+
+    <input type="submit" value="Si">
+    <a href="{% url 'post-detail' post.pk %}">No</a>
+
+</form>
