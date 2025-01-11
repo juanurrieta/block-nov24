@@ -1,7 +1,39 @@
-<form method="post">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa; /* Fondo claro */
+        }
+        .form-container {
+            background-color: #028864; /* Verde oscuro */
+            border-radius: 15px; /* Bordes redondeados */
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+            margin-top: 50px;
+        }
+        .form-container input[type="submit"] {
+            background-color: #028864; /* Verde oscuro */
+            background-color: ; /* Botón blanco */
+            color: #0a320a; /* Texto verde oscuro */
+        }
+        .form-container input[type="submit"]:hover {
+            background-color: #dcdcdc; /* Color al pasar el ratón */
+        }
+    </style>
+</head>
+<body>
+    <div class="container d-flex justify-content-center">
+        <div class="form-container">
+            <form method="post">
+                {% csrf_token %}
+                {{form.as_p}}
+                <input type="submit" value="Log In" class="btn btn-block">
+            </form>
+        </div>
+    </div>
 
-    {% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" value="Log In">
-    
-</form>

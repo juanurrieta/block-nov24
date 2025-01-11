@@ -4,19 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .navbar-custom {
+            background-color: #028864; /* Verde oscuro */
+            background-color: ; /* Verde oscuro */
+            border-radius: 15px; /* Bordes ovalados */
+        }
+        .navbar-custom .navbar-brand,
+        .navbar-custom .nav-link {
+            color: #ffffff; /* Elementos de color blanco */
+        }
+        .navbar-custom .nav-link:hover {
+            color: #dcdcdc; /* Color al pasar el ratón */
+        }
+    </style>
 </head>
 <body>
-    <a href="{% url 'blog-home' %}"><h1>Blog Nov</h1></a>
-    <a href="{% url 'post-new' %}"><h1>Nuevo Post</h1></a>
-
-
-    <form method="post" action="{% url 'logout' %}">
-        {% csrf_token %}
-        <input type="submit" value="Logout">
-
-    </form>
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <a class="navbar-brand" href="#">
+            Mi Empresa
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'blog-home' %}">Blog Nov</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'post-new' %}">Nuevo Post</a>
+                </li>
+                <li class="nav-item">
+                    <form class="form-inline" method="post" action="{% url 'logout' %}">
+                        {% csrf_token %}
+                        <button class="btn btn-outline-light" type="submit">Logout</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
     {% block content %}
     {% endblock content %}
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
